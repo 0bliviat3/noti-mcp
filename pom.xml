@@ -47,23 +47,16 @@
         <!-- Spring Security for authentication -->
         <!-- Removed for simplified MCP server -->
 
-        <!-- JSON Web Token support -->
+        <!-- Model Context Protocol (MCP) support -->
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-api</artifactId>
-            <version>0.11.5</version>
+            <groupId>com.modelcontextprotocol</groupId>
+            <artifactId>mcp-tool-annotations</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-impl</artifactId>
-            <version>0.11.5</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-jackson</artifactId>
-            <version>0.11.5</version>
-            <scope>runtime</scope>
+            <groupId>com.modelcontextprotocol</groupId>
+            <artifactId>mcp-tool-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

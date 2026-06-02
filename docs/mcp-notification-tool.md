@@ -3,63 +3,38 @@
 ## Overview
 This is a Model Context Protocol (MCP) tool suite for sending notifications via various channels including SMS, Email, and Messenger.
 
-## Available Tools
+## Available Methods
 
-### 1. SMS Notification Tool (`mcp.notification.sms`)
-- `sendSms(message, recipient)`: Send an SMS to specified recipient
-- `getSmsStatus(messageId)`: Get status of specific SMS message
+### 1. sendNotification
+Sends a notification message via specified channel.
 
 #### Parameters:
-- `message` (string): The SMS message content
-- `recipient` (string): Recipient's phone number
+- `message` (string): The notification message to send
+- `channel` (string): The notification channel - one of: sms, email, messenger
 
 #### Example:
 ```json
 {
-  "method": "mcp.notification.sms.send",
+  "method": "mcp.notification.send",
   "params": {
-    "message": "Hello from SMS!",
-    "recipient": "+1234567890"
+    "message": "Hello from MCP!",
+    "channel": "email"
   }
 }
 ```
 
-### 2. Email Notification Tool (`mcp.notification.email`)
-- `sendEmail(message, recipient, subject)`: Send an email to specified recipient
-- `getEmailStatus(messageId)`: Get status of specific email message
+### 2. getNotificationStatus  
+Gets the status of a specific notification by ID.
 
 #### Parameters:
-- `message` (string): The email message content  
-- `recipient` (string): Recipient's email address
-- `subject` (string): Email subject line
+- `messageId` (string): The notification message ID
 
 #### Example:
 ```json
 {
-  "method": "mcp.notification.email.send",
+  "method": "mcp.notification.getStatus",
   "params": {
-    "message": "Hello from Email!",
-    "recipient": "user@example.com",
-    "subject": "Test Email"
-  }
-}
-```
-
-### 3. Messenger Notification Tool (`mcp.notification.messenger`)
-- `sendMessenger(message, recipient)`: Send a messenger message to specified recipient
-- `getMessengerStatus(messageId)`: Get status of specific messenger message
-
-#### Parameters:
-- `message` (string): The messenger message content
-- `recipient` (string): Recipient's messenger ID
-
-#### Example:
-```json
-{
-  "method": "mcp.notification.messenger.send",
-  "params": {
-    "message": "Hello from Messenger!",
-    "recipient": "messenger_user_123"
+    "messageId": "12345"
   }
 }
 ```
@@ -67,12 +42,12 @@ This is a Model Context Protocol (MCP) tool suite for sending notifications via 
 ## Implementation Details
 
 ### Supported Channels:
-- **SMS**: Text message delivery via phone numbers
-- **Email**: Email message delivery via email addresses  
-- **Messenger**: Instant messaging delivery via messenger IDs
+- SMS: Text message delivery via phone numbers
+- Email: Email message delivery via email addresses  
+- Messenger: Instant messaging delivery via messenger IDs
 
 ### Error Handling:
-- Invalid channel parameters return error messages
+- Invalid channel parameter returns error message
 - All methods return descriptive status messages
 - Message ID tracking for status monitoring
 
@@ -82,7 +57,7 @@ This is a Model Context Protocol (MCP) tool suite for sending notifications via 
 ```bash
 curl -X POST http://localhost:8080/mcp/notification/sms \
   -H "Content-Type: application/json" \
-  -d '{"message":"Test SMS","recipient":"+1234567890"}'
+  -d '{"message":"Test SMS","recipient":"+123****7890"}'
 ```
 
 ### 2. Sending Email
