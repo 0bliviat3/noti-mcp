@@ -1,13 +1,10 @@
 package com.example.notimcp.tool;
 
-import org.springframework.ai.mcp.annotation.McpTool;
-import org.springframework.ai.mcp.annotation.McpParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * MCP Notification Tool using Spring AI 1.1.6 MCP Annotations
- * This implements the MCP protocol with proper tool annotations
+ * Notification Tool for MCP protocol compliance
  */
 @Component
 public class NotificationTool {
@@ -23,17 +20,11 @@ public class NotificationTool {
     
     /**
      * Send notification via specified channel
-     * This method is annotated as an MCP tool
-     * 
-     * @param message notification message content
+     * @param message notification message
      * @param channel notification channel (sms, email, messenger)
      * @return send result
      */
-    @McpTool
-    public String sendNotification(
-        @McpParam("message") String message,
-        @McpParam("channel") String channel) {
-        
+    public String sendNotification(String message, String channel) {
         switch (channel.toLowerCase()) {
             case "sms":
                 return smsService.sendSms(message, "default");
@@ -48,23 +39,17 @@ public class NotificationTool {
     
     /**
      * Get notification status by ID
-     * This method is also registered as an MCP tool
-     * 
      * @param messageId notification message ID
      * @return status information
      */
-    @McpTool
-    public String getNotificationStatus(@McpParam("messageId") String messageId) {
+    public String getNotificationStatus(String messageId) {
         return "Status: Completed - ID: " + messageId;
     }
     
     /**
      * List all available notification channels
-     * This method provides channel information to MCP clients
-     * 
      * @return list of supported channels
      */
-    @McpTool
     public String getAvailableChannels() {
         return "Supported channels: sms, email, messenger";
     }
