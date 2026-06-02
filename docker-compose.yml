@@ -1,0 +1,33 @@
+# Updated docker-compose.yml with .env support
+
+version: '3.8'
+
+services:
+  noti-mcp:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.temurin
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  # Optional: Database service if needed
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: noti_mcp
+  #   volumes:
+  #     - db_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+volumes:
+  db_data:

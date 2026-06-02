@@ -1,0 +1,24 @@
+# .gitignore
+*.log
+target/
+*.jar
+*.war
+*.ear
+*.class
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS Generated Files
+*.tmp
+*.temp
