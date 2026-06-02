@@ -99,21 +99,14 @@ java -jar target/noti-mcp-0.0.1-SNAPSHOT.jar
 
 # 2. 환경 변수 설정 (선택)
 export NOTI_API_URL="https://your-api.com"
-export NOTI_API_TOKEN="your-token"
-```
-
+export NOTI_API_TOKEN="your-r...n
 ## 📊 사용 방법
 
 ### 1. **환경 변수 설정**
 ```bash
 # .env 파일 내용 예시
 NOTI_API_URL=https://your-real-api.com/api/v1/notification
-NOTI_API_TOKEN=your-r...here
-SERVER_PORT=8080
-LOGGING_LEVEL=com.example.notimcp=INFO
-```
-
-### 2. **API 호출 예시**
+NOTI_API_TOKEN=your-r...n### 2. **API 호출 예시**
 ```bash
 # 상태 확인
 curl -X GET http://localhost:8080/mcp/health
@@ -189,7 +182,7 @@ docker run -p 8080:8080 noti-mcp-dev
 ## 📞 연락처
 
 - **GitHub**: [0bliviat3/noti-mcp](https://github.com/0bliviat3/noti-mcp)
-- **문의**: 0bliviat3@gmail.com
+- **문의**: sjo9810@naver.com
 
 ## 📜 라이선스
 
