@@ -1,12 +1,10 @@
 package com.example.notimcp.tool;
 
-import com.modelcontextprotocol.McpTool;
-import com.modelcontextprotocol.McpParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * MCP Notification Tool for Model Context Protocol compliance
+ * Notification Tool for MCP protocol compliance
  */
 @Component
 public class NotificationTool {
@@ -26,11 +24,7 @@ public class NotificationTool {
      * @param channel notification channel (sms, email, messenger)
      * @return send result
      */
-    @McpTool
-    public String sendNotification(
-        @McpParam("message") String message,
-        @McpParam("channel") String channel) {
-        
+    public String sendNotification(String message, String channel) {
         switch (channel.toLowerCase()) {
             case "sms":
                 return smsService.sendSms(message, "default");
@@ -48,8 +42,7 @@ public class NotificationTool {
      * @param messageId notification message ID
      * @return status information
      */
-    @McpTool
-    public String getNotificationStatus(@McpParam("messageId") String messageId) {
+    public String getNotificationStatus(String messageId) {
         return "Status: Completed - ID: " + messageId;
     }
 }
