@@ -3,4 +3,11 @@ Archiver-Version: Plexus Archiver
 Created-By: Apache Maven 3.8.7
 Built-By: appmanager
 Build-Jdk: 21.0.11
+Main-Class: org.springframework.boot.loader.launch.JarLauncher
+Start-Class: com.example.notimcp.NotiMcpApplication
+Spring-Boot-Version: 3.3.5
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
 
